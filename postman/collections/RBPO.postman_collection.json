@@ -64,7 +64,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8085/users/2",
+              "raw": "http://localhost:8085/users/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -72,7 +72,7 @@
               "port": "8085",
               "path": [
                 "users",
-                "2"
+                "1"
               ]
             }
           },
@@ -94,7 +94,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8085/users/2",
+              "raw": "http://localhost:8085/users/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -102,7 +102,7 @@
               "port": "8085",
               "path": [
                 "users",
-                "2"
+                "1"
               ]
             }
           },
@@ -191,7 +191,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8085/projects/3",
+              "raw": "http://localhost:8085/projects/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -199,7 +199,7 @@
               "port": "8085",
               "path": [
                 "projects",
-                "3"
+                "1"
               ]
             }
           },
@@ -213,7 +213,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{     \"name\": \"Проект 2 ОТРЕДАКТИРОВАН\",     \"description\": \"Описание проекта 2 ОТРЕДАКТИРОВАН\", \"users\": [{\"id\": 2}, {\"id\":1}] }\r\n",
+              "raw": "{     \"name\": \"Проект 2 ОТРЕДАКТИРОВАН\",     \"description\": \"Описание проекта 2 ОТРЕДАКТИРОВАН\", \"users\": [{\"id\": 1}] }\r\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -318,7 +318,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8085/tasks/2",
+              "raw": "http://localhost:8085/tasks/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -326,7 +326,7 @@
               "port": "8085",
               "path": [
                 "tasks",
-                "2"
+                "1"
               ]
             }
           },
@@ -397,7 +397,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "//{ \"content\": \"Комментарий к задаче 1\" }\r\n\r\n//{ \"content\": \"Комментарий к задаче 2\" }\r\n\r\n//{ \"content\": \"2 Комментарий к задаче 2\" }\r\n\r\n{ \"content\": \"Комментарий к задаче 4\" }\r\n\r\n// НЕ ЗАБУДЬ МЕНЯТЬ ?taskId=1&authorId=1 В АДРЕСНОЙ СТРОКЕ",
+              "raw": "//{ \"content\": \"Комментарий к задаче 1\" }\r\n\r\n//{ \"content\": \"Комментарий к задаче 2\" }\r\n\r\n//{ \"content\": \"2 Комментарий к задаче 2\" }\r\n\r\n{ \"text\": \"Комментарий к задаче 4\", \"task\":{\"id\":1}, \"project\":{\"id\":1}, \"user\":{\"id\":1} }\r\n\r\n// НЕ ЗАБУДЬ МЕНЯТЬ ?taskId=1&authorId=1 В АДРЕСНОЙ СТРОКЕ",
               "options": {
                 "raw": {
                   "language": "json"
@@ -405,7 +405,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8085/comments?taskId=4&authorId=4",
+              "raw": "http://localhost:8085/comments",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -413,18 +413,6 @@
               "port": "8085",
               "path": [
                 "comments"
-              ],
-              "query": [
-                {
-                  "key": "taskId",
-                  "value": "4",
-                  "uuid": "0fe910bc-5100-4175-94d2-5fa97ece63b1"
-                },
-                {
-                  "key": "authorId",
-                  "value": "4",
-                  "uuid": "50831d26-066a-4037-acb1-673c8a41fabd"
-                }
               ]
             }
           },
@@ -457,7 +445,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8085/comments/3",
+              "raw": "http://localhost:8085/comments/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -465,29 +453,7 @@
               "port": "8085",
               "path": [
                 "comments",
-                "3"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "CommentTaskId",
-          "id": "d676da53-476d-4bcf-86d8-cdeecb904953",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8085/comments/task/2",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8085",
-              "path": [
-                "comments",
-                "task",
-                "2"
+                "1"
               ]
             }
           },
@@ -501,7 +467,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{ \"content\": \"Комментарий к задаче 2 ОБНОВЛЕННЫЙ\" }",
+              "raw": "{ \"text\": \"Комментарий к задаче 1 ОТРЕДАКТИРОВАНО\", \"task\":{\"id\":1}, \"project\":{\"id\":1}, \"user\":{\"id\":1} }",
               "options": {
                 "raw": {
                   "language": "json"
@@ -509,7 +475,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8085/comments/2",
+              "raw": "http://localhost:8085/comments/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -517,7 +483,7 @@
               "port": "8085",
               "path": [
                 "comments",
-                "2"
+                "1"
               ]
             }
           },
@@ -558,7 +524,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "// { \"name\": \"tag 1\" }\r\n\r\n// { \"name\": \"tag 2\" }\r\n\r\n// { \"name\": \"tag 3\" }\r\n\r\n// { \"name\": \"tag 4\" }\r\n",
+              "raw": " //{ \"name\": \"tag 1\" }\r\n\r\n //{ \"name\": \"tag 2\" }\r\n\r\n { \"name\": \"tag 3\", \"tasks\": [{\"id\":1}] }\r\n\r\n// { \"name\": \"tag 4\" }\r\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -606,7 +572,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8085/tags/2",
+              "raw": "http://localhost:8085/tags/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -614,7 +580,7 @@
               "port": "8085",
               "path": [
                 "tags",
-                "2"
+                "1"
               ]
             }
           },
@@ -628,7 +594,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{ \"name\": \"tag 2 ОБНОВЛЕННЫЙ\" }",
+              "raw": "{\r\n  \"name\": \"backend\",\r\n  \"tasks\": [\r\n    { \"id\": 1 }\r\n  ]\r\n}\r\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -636,7 +602,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8085/tags/2",
+              "raw": "http://localhost:8085/tags/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -644,7 +610,7 @@
               "port": "8085",
               "path": [
                 "tags",
-                "2"
+                "1"
               ]
             }
           },
@@ -657,7 +623,7 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8085/tags/3",
+              "raw": "http://localhost:8085/tags/1",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -665,7 +631,7 @@
               "port": "8085",
               "path": [
                 "tags",
-                "3"
+                "1"
               ]
             }
           },

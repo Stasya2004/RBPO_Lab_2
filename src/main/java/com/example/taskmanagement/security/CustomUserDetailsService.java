@@ -18,15 +18,21 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
 
-        AuthUser user = repository.findByUsername(username)
+        AuthUser authUser = repository.findByUsername(username)
                 .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found")
+                        new UsernameNotFoundException("Пользователь не найден")
                 );
 
-        return User.builder()
-                .username(user.getUsername())
-                .password(user.getPassword())
-                .roles(user.getRole().name().replace("ROLE_", ""))
+        // Проверка, что пользователь подтверждён админом
+        if (!authUser.isEnabled()) {
+            throw new UsernameNotFoundException("Пользователь не подтвержден");
+        }
+
+        // Возвращаем Spring Security UserDetails
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(authUser.getUsername())
+                .password(authUser.getPassword())
+                .roles(authUser.getRole().name().replace("ROLE_", ""))
                 .build();
     }
 }

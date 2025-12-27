@@ -1,5 +1,7 @@
 package com.example.taskmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -18,22 +20,16 @@ public class Comment {
     private Task task;
 
     @ManyToOne
-    @JoinColumn(name = "project_id")
-    @JsonIgnoreProperties({"tasks", "users"})
-    private Project project;
-
-    @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties({"projects"})
+    @JsonIgnoreProperties({"projects", "hibernateLazyInitializer", "handler"})
     private User user;
 
     public Comment() {}
 
-    public Comment(Long id, String text, Task task, Project project, User user) {
+    public Comment(Long id, String text, Task task, User user) {
         this.id = id;
         this.text = text;
         this.task = task;
-        this.project = project;
         this.user = user;
     }
 
@@ -46,9 +42,7 @@ public class Comment {
     public Task getTask() { return task; }
     public void setTask(Task task) { this.task = task; }
 
-    public Project getProject() { return project; }
-    public void setProject(Project project) { this.project = project; }
-
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
 }
+
